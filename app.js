@@ -7,7 +7,6 @@ var bodyparser = require('body-parser');
 
 var indexRouter = require('./routes/index.js');
 var searchRouter = require('./routes/search.js');
-var profilesRouter = require('./routes/api/profiles');
 const postUserRouter = require('./routes/api/postUsers.js');
 const getUserRouter = require('./routes/api/getUsers.js');
 const getSearchRouter = require('./routes/search.js');
@@ -27,7 +26,6 @@ app.use(express.static('public'));
 
 app.use(bodyparser.json());
 
-app.use('/profiles', profilesRouter);
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
 app.use('/postUsers', postUserRouter);

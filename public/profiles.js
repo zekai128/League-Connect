@@ -6,32 +6,58 @@ document.getElementById("search").addEventListener("click", ()=>{
     Extract the query parameters from the form.
   */
 
-  alert("botton was clicked");
+
   var rank = document.getElementById("rank").value;
   var position = document.getElementById("position").value;
   var server = document.getElementById("server").value;
-  alert(rank);
+
   var queryParameters = {
     "server" : server,
     "rank" : rank,
     "position" : position
   }
 
-  /*
-    Query the database using the query parameters from above.
-  */
-  
-  
+ 
   const xhr = new XMLHttpRequest();
   xhr.open('POST', 'http://localhost:1337/getUsers');
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onload = () => {
-    alert("request received!");
+    
+    result = JSON.parse(xhr.response);
+    resultDiv = document.getElementById("results");
+    var infoDiv = document.createElement("div");
+	infoDiv.classList.add("profile");
+    infoDiv.classList.add("bg-light");
+    
+    
+    var image = document.createElement("img");
+    image.classList.add("scale");
+    image.src = "/images/" + "Emblem_" + result[1].rank + ".png";
+    infoDiv.classList.add("center");
+    infoDiv.appendChild(image);
+    
+    var name_h2 = document.createElement("h2");
+	var name_h2_text = document.createTextNode(result[1].name);
+	name_h2.appendChild(name_h2_text);
+    infoDiv.appendChild(name_h2);
+    
+    var position_p = document.createElement("p");
+	position_p.innerHTML = "position: " + result[1].position;
+	var server_p = document.createElement("p");
+    server_p.innerHTML = "Server: " + result[1].server;
+    
+    infoDiv.appendChild(image);
+	infoDiv.appendChild(name_h2);
+	infoDiv.appendChild(position_p);
+	infoDiv.appendChild(server_p);
+    
+    resultDiv.appendChild(infoDiv);
+    
+    
+
   }
   xhr.send();
   
-  alert("control continues");
-
   /*
     var rank = document.getElementById("rank").value;
   	var position = document.getElementById("position").value;
@@ -93,8 +119,8 @@ document.getElementById("search").addEventListener("click", ()=>{
 
 
 
-/*
-results.innerHTML = `<div class="profile bg-light">
+/* 
+    results.innerHTML = `<div class="profile bg-light">
           <img
             class = "scale"
             src="../public/images/Emblem_Bronze.png"
@@ -139,3 +165,5 @@ results.innerHTML = `<div class="profile bg-light">
             </li></ul>
         </div>`;
 */
+
+
