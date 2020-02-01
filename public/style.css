@@ -393,3 +393,28 @@ button {
   margin-bottom: 1rem;
 }
 
+.flex-parent {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}
+
+.round {
+    border-radius: 50%;
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.vertical-center {
+    vertical-align: middle;
+}
+
+.results {
+    margin-top: 10px;
+}
+
+.space-out {
+    margin: 13px;
+}

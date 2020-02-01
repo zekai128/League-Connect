@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyparser = require('body-parser');
 
+var profilesPageRouter = require('./routes/profilesPage.js');
 var indexRouter = require('./routes/index.js');
 var searchRouter = require('./routes/search.js');
 const postUserRouter = require('./routes/api/postUsers.js');
@@ -26,7 +27,6 @@ app.use(express.static('public'));
 
 app.use(bodyparser.json());
 
-app.use('/', indexRouter);
 app.use('/search', searchRouter);
 app.use('/postUsers', postUserRouter);
 app.use('/getUsers', getUserRouter);
