@@ -16,7 +16,7 @@
     />
 
     <link rel="stylesheet" href="style.css" />
-    <title>Welcome To The Developer Connector</title>
+    <title> LeagueCon </title>
   </head>
   <body>
     
@@ -34,26 +34,24 @@
 
     <section class="container">
       <h1 class="large text-primary">
-        Create/Edit Your Profile
+        Welcome
       </h1>
       <p class="lead">
-        <i class="fas fa-user"></i> Let's get some information to make your
-        profile stand out
+        <i class="fas fa-user"></i> Add your profile to the site!
       </p>
-      <small>* = required field</small>
 
       
       <form class="form">
          
          <div class="form-group">
-          <input type="text" placeholder="Enter Summoner Name" name="company" />
+          <input id="name" type="text" placeholder="Enter Summoner Name" name="company" />
           <small class="form-text"
             >What is your summoner name?</small
           >
          </div>
 
          <div class="form-group">
-          <select name="status">
+          <select id="rank" name="status">
             <option value="0">* Select Rank</option>
             <option value="Iron">Iron</option>
             <option value="Bronze">Bronze</option>
@@ -72,7 +70,7 @@
         </div>
 
         <div class="form-group">
-          <select name="status">
+          <select id="position" name="status">
             <option value="0">* Select Position</option>
             <option value="Mid">Mid</option>
             <option value="Top">Top</option>
@@ -81,36 +79,30 @@
             <option value="Jungle">Jungle</option>
           </select>
           <small class="form-text"
-            >Which position is your favorite?</small
+            >What position do you play?</small
           >
         </div>
         <div class="form-group">
-          <input type="text" placeholder="favorite champions" name="company" />
-          <small class="form-text"
-            >Please enter your favorite champions. Please use comma separated values (eg.
-            Zed, Ahri, Master Yi)</small
-          >
-        </div>
-
-        
-        <div class="form-group">
-          <select name="status">
+          <select id="server" name="status">
             <option value="0">* Select Server</option>
-            <option value="Iron">NA</option>
-            <option value="Bronze">EU</option>
+            <option value="NA">NA</option>
+            <option value="EU">EU</option>
           </select>
           <small class="form-text"
             >Which server do you play on?</small
           >
         </div>
-        
+  
         <div class="form-group">
-          <textarea placeholder="A short bio of yourself" name="bio"></textarea>
-          <small class="form-text">Tell us a little about yourself</small>
+          <input id="champion" type="text" placeholder="main champion" name="company" />
+          <small class="form-text"
+            >What is your main champion? </small
+          >
         </div>
 
-        <input type="submit" class="btn btn-primary my-1" />
-        <a class="btn btn-light my-1" href="dashboard.html">Go Back</a>
+        
+        
+        <button id="post" class="btn btn-primary my-1" onclick="onClick()">Join</button>
       </form>
     </section>
     <script src = "create-profile.js"></script>
